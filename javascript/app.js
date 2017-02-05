@@ -16,24 +16,34 @@
   let deck = [];
   let color = ["RED", "BLUE", "YELLOW", "GREEN"];
   var build_deck = () => {
-    for (let i = 1; i <= 1; i++) {
+    for (let i = 1; i <= 12; i++) {
       var cards = [];
       cards.push(Array(8).fill(i));
-
       cards[0].forEach(function(x, index, array){
-        x[index] = "3";
-        console.log("index", index)
-        console.log("x", x);
-        console.log("x index", x[index]);
-        console.log("index x", index[x]);
-      })
-      console.log(cards)
-      // cards.fill({card:{value:i, color: "red"}});
-      // cards.fill.call({})
-      // console.log(cards)
-      // cards.forEach(pushCardsToDeck);
+        switch (index) {
+          case 0:
+          case 1:
+          cards[0][index] = {card: {value: i, color: "red"}};
+          break;
+          case 2:
+          case 3:
+          cards[0][index] = {card: {value: i, color: "blue"}}
+          break;
+          case 4:
+          case 5:
+          cards[0][index] = {card: {value: i, color: "green"}}
+          break;
+          case 6:
+          case 7:
+          cards[0][index] = {card: {value: i, color: "yellow"}}
+          break;
+        }
+      });
+      cards.forEach(pushCardsToDeck);
     };
-};
+        console.log(cards)
+    };
+
   var pushCardsToDeck = (element, index, array) =>
   {
     element.forEach(function(card){
