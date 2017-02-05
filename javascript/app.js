@@ -14,13 +14,15 @@
   //SK - 4
   //total 108
   let deck = [];
-  let color = ["RED", "BLUE", "YELLOW", "GREEN"];
   var build_deck = () => {
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 13; i++) {
       var cards = [];
       cards.push(Array(8).fill(i));
       cards[0].forEach(function(x, index, array){
-        switch (index) {
+        if (x === 13) { 
+          cards[0][index] = {card: {value: i, color: "wild"}}}
+        else {
+          switch (index) {
           case 0:
           case 1:
           cards[0][index] = {card: {value: i, color: "red"}};
@@ -37,17 +39,30 @@
           case 7:
           cards[0][index] = {card: {value: i, color: "yellow"}}
           break;
-        }
+          };
+        };
       });
       cards.forEach(pushCardsToDeck);
     };
         console.log(cards)
+        addSkipCards();
     };
 
+  var addSkipCards = () => {
+    var cards = [];
+    for (let i = 0; i < 4; i++){
+      cards.push({card: {value: "skip", color: "none"}});
+    }
+    cards.forEach(function(card){
+      deck.push(card);
+    });
+
+  }  
   var pushCardsToDeck = (element, index, array) =>
   {
     element.forEach(function(card){
       deck.push(card);
-    })  };
+    });  
+  };
   
   build_deck();
