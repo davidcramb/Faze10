@@ -1,3 +1,26 @@
 data-card{
   
 }
+
+.card {
+  height: 200px;
+  width: 180px;
+  background-size: 180px 200px;
+}
+.card-back {
+  background: url(../images/card-back.jpg);
+  background-size: 180px 200px;
+}
+.card-front {
+  border: 5px white solid;
+}
+.card-inside-top{
+  
+}
+.card-inside-middle{
+
+}
+
+.card-inside-bottom{
+
+}
